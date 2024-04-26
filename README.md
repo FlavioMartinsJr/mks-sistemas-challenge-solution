@@ -7,7 +7,7 @@
 
 Solução do desafio pratico de um processo seletivo
 
-## Preview
+## :bell: Preview:
 
 <ul>
   <li>https://mks-sistemas-challenge-solution.vercel.app/</li>
