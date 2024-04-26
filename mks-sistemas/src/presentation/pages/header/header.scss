@@ -1,0 +1,328 @@
+@import "../../../assets/scss/colors.scss";
+@import "../../../assets/scss/responsive.scss";
+
+.header-navbar{
+    color:$branco;
+    min-height: 104px;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    align-items: center;
+    padding-left: 65px;
+    padding-right: 85px;
+
+    @include lg{
+        grid-template-columns: 70% 30%;
+        padding-right: 65px;
+    }
+    @include md{
+        grid-template-columns: 60% 40%;
+        padding: 0  25px;
+    }
+    @include sm{
+        padding: 0  20px;
+    }
+    
+
+    .header-navbar-left{
+        display: flex;
+        align-items: end;
+        justify-content: start;
+
+        h1{
+            font-size: 40px;
+            margin-right: 6px;
+            font-weight: 600;
+        }
+        p{
+            font-weight: 300;
+            font-size: 19px;
+            margin-bottom: 5.65px;
+        }
+
+        @include md{
+            h1{
+                font-size: 37px;
+            }
+            p{
+                font-size: 16px;
+            }
+        }
+    }
+    .header-navbar-right{
+        display: flex;
+        align-items: end;
+        justify-content: end;
+
+        button{
+            padding: 12px 25px 13px 15px;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            border: 0px solid;
+            font-weight: 700;
+            cursor: pointer;
+        
+            img{
+                margin-right: 15px;
+            }
+        }
+        
+        button:hover{
+            opacity: 0.8;
+        }
+    }
+}
+.header-navbar-modal{
+    width: 32vw;
+    height: 100vh;
+    font-size: 22px;
+    font-weight: 700;
+    color: $branco;
+    background-color: $azul;
+
+    @include xl{
+        width: 55vw;
+    }
+    @include lg{
+        width: 65vw;
+    }
+    @include md{
+        font-size: 18px;
+        width: 77vw;
+    }
+    @include sm{
+        width: 85vw;
+        font-size: 14px;
+    }
+
+    .modal-top{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr .7fr;
+        align-items: center;
+        height: 12%;
+
+        .modal-tittle{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding-left: 32px;
+
+        }
+        .modal-icon-closed{
+            padding-right: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            color: $preto;
+
+            .icon-closed-big{
+                height: 46px;
+
+                @include md{
+                    height: 36px;
+                }
+            }
+        }
+    }
+    .modal-body{
+        height: 72%;
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        padding: 20px 0px;
+        
+
+        .item{
+            border: 0px solid;
+            padding: 12px 13px;
+            width: 80%;
+            height: 130px;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: .6fr 0.9fr .5fr .6fr;
+            background-color: $branco;
+            color: $preto;
+            position: relative;
+
+            .item-photo{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .item-photo-img{
+                    height: 80%;
+                    width: 85%;
+
+                    @include md{
+                        height: 80%;
+                        width: 100%;
+                    }
+                }
+
+            }
+
+            .item-information{
+                display: flex;
+                align-items: center;
+                overflow-y: hidden;
+                overflow-x: hidden;
+
+                .item-information-tittle{
+                    padding: 12px 24px;
+                    h4{
+                        font-weight: 400;
+                        font-size: 17px;
+
+                        @include md{
+                            padding: 6px 8px;
+                            font-size: 12px;
+                        }
+                        @include sm{
+                            padding: 4px 6px;
+                            font-size: 10px;
+                        }
+                    }
+                }
+                
+            }
+            .item-amoust{
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: center;
+                gap: 3px;
+                font-size: 12px;
+                font-weight: 400;
+
+                @include md{
+                    font-size: 10px;
+                }
+
+                .item-amoust-button{
+                    display: flex;
+                    align-items: center;
+                    border:1px solid $cinza;
+                    border-radius: 5px;
+                    color: $cinza;
+                    font-size: 14px;
+
+                    @include md{
+                        font-size: 12px;
+                    }
+                    @include sm{
+                        font-size: 10px;
+                    }
+
+                    button{
+                        font-size: 14px;
+                        cursor: pointer;
+                        border: 0px solid;
+                        background-color: $branco;
+
+                        @include md{
+                            font-size: 10px;
+                        }
+                    }
+                    button:hover{
+                        background-color: $cinza;
+                    }
+
+                    .item-amoust-button-decrease{
+                        padding: 2px 4px 2px 6px;
+
+                        @include sm{
+                            padding: 1px 2px 1px 4px;
+                        }
+                    }
+                    p{
+                        padding: 0px 6px;
+                        color: $preto;
+
+                        @include md{
+                            padding: 0px 4px;
+                        }
+
+                        @include sm{
+                            padding: 0px 2px;
+                        }
+                    }
+                    .item-amoust-button-increase{
+                        padding: 2px 6px 2px 4px;
+
+                        @include sm{
+                            padding: 1px 2px 1px 4px;
+                        }
+                    }
+                }
+            }
+            .item-total{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                h3{
+                    font-size: 21px;
+
+                    @include md{
+                        font-size: 15px;
+                    }
+                }
+            }
+            .item-closed{
+                
+                position: absolute;
+                right: -1px;
+                top: -1px;
+                color: $preto;
+                height: 22px;
+            }
+        
+        }
+        
+    }
+    .modal-total{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        height: 8%;
+
+        .modal-total-left{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-total-right{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .modal-end{
+        height: 8%;
+        button{
+            border: 0 solid;
+            color: $branco;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 22px;
+            background-color: $preto;
+        }
+        button:hover{
+            opacity: 0.9;
+        }
+    }
+}
+.icon-closed{
+    cursor: pointer;
+}
+.icon-closed:hover{
+    opacity: 0.8;
+}
