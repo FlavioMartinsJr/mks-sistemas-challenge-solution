@@ -149,6 +149,10 @@
             color: $preto;
             position: relative;
 
+            @include md{
+                padding: 9px 10px;
+                grid-template-columns: .6fr 0.8fr .5fr .6fr;
+            }
             .item-photo{
                 display: flex;
                 justify-content: center;
@@ -269,7 +273,10 @@
                     font-size: 21px;
 
                     @include md{
-                        font-size: 15px;
+                        font-size: 14px;
+                    }
+                    @include md{
+                        font-size: 11px;
                     }
                 }
             }
