@@ -7,9 +7,8 @@
 
 Solução do desafio pratico de um processo seletivo
 
-## :Preview
+## Preview
 
-LINK site Hospedando:
 <ul>
   <li>https://mks-sistemas-challenge-solution.vercel.app/</li>
 </ul>
