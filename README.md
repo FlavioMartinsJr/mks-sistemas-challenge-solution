@@ -1,2 +1,2 @@
 # mks-sistemas-challenge-solution
-Solução do desafio pratico em um processo seletivo
+Solução do desafio pratico de um processo seletivo
