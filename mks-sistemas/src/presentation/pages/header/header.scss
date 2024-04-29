@@ -332,6 +332,12 @@
                 top: -1px;
                 color: $preto;
                 height: 22px;
+                
+                @include sm{
+                    right: 6px;
+                    top: 5px;
+                    height: 15px;
+                }
             }
         
         }
@@ -377,4 +383,16 @@
 }
 .icon-closed:hover{
     opacity: 0.8;
+}
+.default{
+    display: block;
+    @include sm{
+        display: none;
+    }
+}
+.default-sm{
+    display: none;
+    @include sm{
+        display: block;
+    }
 }
