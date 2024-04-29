@@ -1,7 +1,4 @@
-// import Typography from '@mui/material/Typography';
 import Skeleton from '@mui/material/Skeleton';
-
-
 
 export function ItemProductsSkeleton() {
 

@@ -8,7 +8,7 @@ function toProductsModel(productsBuy: ProductsModel): ProductsBuyModel {
     description: productsBuy.description,
     photo: productsBuy.photo,
     price: productsBuy.price,
-    amount: 1,
+    amount: 1,//0 teste tem que ser esperando 1 aqui tambem
   };
 }
 

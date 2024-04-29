@@ -19,7 +19,7 @@ export function CartModalItem({product, index}: Props) {
             
             <div className='item-information'>
                 <div className='item-information-tittle'>
-                    <h4>{product.brand}</h4>
+                    <h4>{product.name}</h4>
                 </div>
             </div>   
 

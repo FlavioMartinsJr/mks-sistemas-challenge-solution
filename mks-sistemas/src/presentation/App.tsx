@@ -1,4 +1,4 @@
-import { AppRoutes } from './AppRoutes.tsx'
+import { AppRoutes } from './Routes.tsx'
 import { QueryClient , QueryClientProvider } from "@tanstack/react-query"
 import "../assets/scss/global.scss";
 import { ModalProvider,CartProvider } from './pages/header/contexts';
