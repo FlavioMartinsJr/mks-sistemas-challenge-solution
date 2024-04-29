@@ -28,7 +28,7 @@ export function ItemProductsHook({productsListUseCase}: Props) {
                 (
                     <section className='content-items'>
                         {/* so ajustar a key da array */}
-                        {Array.from(new Array(8))?.map((_array,index) => (<ItemProductsSkeleton key={index} />))}
+                        {Array.from(new Array(8))?.map(() => ( <ItemProductsSkeleton />))}
                     </section>
                 )  
                 : 
