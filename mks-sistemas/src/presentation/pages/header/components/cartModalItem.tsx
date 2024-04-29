@@ -1,4 +1,5 @@
 import { ProductsBuyModel } from '@domain/models';
+import CloseIconSm from '../../../../assets/img/Close_cart_sm.svg';
 import CloseIcon from '../../../../assets/img/Close_cart.svg';
 import { useCartContext } from '../contexts';
 
@@ -36,7 +37,8 @@ export function CartModalItem({product, index}: Props) {
                 <h3>R${Math.trunc(product.price) * product.amount}</h3>
             </div>
 
-            <img onClick={() => {RemoveCart(index)}} className='item-closed icon-closed' src={CloseIcon}/>
+            <img onClick={() => {RemoveCart(index)}} className='item-closed icon-closed default' src={CloseIcon}/>
+            <img onClick={() => {RemoveCart(index)}} className='item-closed icon-closed default-sm' src={CloseIconSm}/>
         </div>  
     );
 }
