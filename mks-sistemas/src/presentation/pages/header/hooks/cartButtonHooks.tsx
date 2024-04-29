@@ -1,12 +1,8 @@
 import { CartButton  } from "../components"
 
-type Props = {
-    newItem:number;
-}
-
-export function CartButtonHooks({newItem} : Props){
+export function CartButtonHooks(){
 
     return(
-        <CartButton item={newItem}/>  
+        <CartButton/>  
     );
 }

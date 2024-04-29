@@ -1,17 +1,15 @@
 import { CartModal } from './cartModal';
 import Drawer from '@mui/material/Drawer';
 import svgCart from "../../../../assets/img/Vector.svg";
-import { useModalContext } from "../contexts";
+import { useCartContext, useModalContext } from "../contexts";
 
-type Props = {
-    item: number;
-};
 
-export function CartButton({item}: Props){
+export function CartButton(){
     const {isOpen,ModalOpen } = useModalContext()
+    const {cart } = useCartContext()
     return(
         <div>
-            <button onClick={() => {ModalOpen()}}><img src={svgCart}/>{item}</button>
+            <button  onClick={() => {ModalOpen()}}><img src={svgCart}/>{cart?.length}</button>
             <Drawer
                 open={isOpen} 
                 onClose={ModalOpen}

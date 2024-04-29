@@ -1,12 +1,13 @@
-import { ProductsModel } from "@domain/models";
+import { ProductsBuyModel } from "@domain/models";
 import { createContext,useContext,useState } from "react";
 
 type CartContextData = {
-    cart:ProductsModel[] | [];
-    AddCart:(product: ProductsModel) => void;
-    RemoveCart:(product : ProductsModel) => void;
+    cart:ProductsBuyModel[] | [];
+    AddCart:(product: ProductsBuyModel) => void;
+    RemoveCart:(id : number) => void;
     RemoveAllCart:() => void;
-    CountCart:() => number;
+    DecreaseAmountCart:(product: ProductsBuyModel) => void;
+    IncreaseAmountCart:(product: ProductsBuyModel) => void;
     FullPriceCart:() => number;
 };
 
@@ -17,40 +18,84 @@ interface Props {
 const CartContext = createContext({} as CartContextData);
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
-    const [cart, setCart] = useState<ProductsModel[]>([]);
+    const [cart, setCart] = useState<ProductsBuyModel[]>([]);
 
-    const AddCart = (product: ProductsModel) => {
-        cart.push(product);
-        setCart(cart);
+    function ProductAlreadyExist(product: ProductsBuyModel){
+        const element = cart.find(products => products == product);
+        if(element == undefined){
+            return false;
+        }
+        return true;
+    }
+
+    function IncreaseQuantityProduct(product: ProductsBuyModel){
+        product.amount += 1;
+        return product;
+    }
+
+    function DecreaseQuantityProduct(product: ProductsBuyModel){
+        if(product.amount > 0){
+            product.amount -= 1;
+        }
+        return product;
+    }
+
+    const IncreaseAmountCart = (product: ProductsBuyModel) => {
+        const newCart: ProductsBuyModel[] = [];
+        cart.map((productCart) => {
+            if(productCart.id == product.id){
+                productCart = IncreaseQuantityProduct(productCart)
+            }
+        });
+        cart.map((productCart) => newCart.push(productCart));
+        setCart(newCart);
+    }
+
+    const DecreaseAmountCart = (product: ProductsBuyModel) => {
+        const newCart: ProductsBuyModel[] = [];
+        cart.map((productCart) => {
+            if(productCart.id == product.id){
+                productCart = DecreaseQuantityProduct(productCart)
+            }
+        });
+        cart.map((productCart) => newCart.push(productCart));
+        setCart(newCart);
+    }
+
+    const AddCart = (product: ProductsBuyModel) => {
+        if(ProductAlreadyExist(product)){
+            IncreaseAmountCart(product)
+            return true;
+        }
+
+        const newCart: ProductsBuyModel[] = [];
+        cart.map((product) => newCart.push(product));
+        newCart.push(product);
+        setCart(newCart);
     };
 
-    const RemoveCart = (product : ProductsModel) => {
-        const indice = cart.indexOf(product);
-        if (indice > -1) {
-            cart.splice(indice, 1);
-          }
+    const RemoveCart = (id : number) => {
+        const newCart: ProductsBuyModel[] = [];
+        cart.splice(id,1);
+        cart.map((product) => newCart.push(product));
+        setCart(newCart);
     };  
 
     const RemoveAllCart = () => {
-        const newCart: ProductsModel[] = [];
+        const newCart: ProductsBuyModel[] = [];
         setCart(newCart);
     };
 
     const FullPriceCart = () => {
         let fullPrice = 0;
-        cart.map((product) => (
-            fullPrice = fullPrice + parseFloat(product.price)
-        ));
-        console.log("total: R$"+fullPrice)
-        return fullPrice
-    };
-
-    const CountCart = () => {
-        return cart.length;
+        cart.map((product) => {
+            fullPrice = fullPrice + (Math.trunc(product.price) * product.amount);
+        });
+        return fullPrice;
     };
 
     return(
-        <CartContext.Provider value={{cart,AddCart,FullPriceCart,RemoveCart,RemoveAllCart,CountCart}}>
+        <CartContext.Provider value={{cart,AddCart,IncreaseAmountCart,DecreaseAmountCart,FullPriceCart,RemoveCart,RemoveAllCart}}>
             <>
                 {children}
             </>

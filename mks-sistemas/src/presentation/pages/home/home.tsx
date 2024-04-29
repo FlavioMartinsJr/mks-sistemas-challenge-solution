@@ -7,10 +7,10 @@ type Props = {
 };
 
 export function Home({productsListUseCase}: Props) {
-   
     return (
+        
         <section className='content'>
-            
+
             <ItemProductsHook productsListUseCase={productsListUseCase}/>
             
         </section>  

@@ -17,7 +17,7 @@ export function AppRoutes(){
           <Header/>
         </header> 
 
-        <main id="root">
+        <main id="body">
           <Home productsListUseCase={productsListuseCase}/>
         </main> 
 

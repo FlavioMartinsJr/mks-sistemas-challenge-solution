@@ -1,4 +1,4 @@
-import { ProductsModel } from '@domain/models';
+import { ProductsBuyModel } from '@domain/models';
 
 export interface IProductsList {
     list(): Promise<IProductsList.Model>;
@@ -6,5 +6,5 @@ export interface IProductsList {
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace IProductsList{
-    export type Model = ProductsModel[];
+    export type Model = ProductsBuyModel[];
 }
