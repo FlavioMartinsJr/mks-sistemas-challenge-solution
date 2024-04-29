@@ -17,7 +17,7 @@ export function CartModal(){
             
 
             <section className="modal-body">
-                {cart?.map((product) => (<CartModalItem key={product.id} product={product} />))}
+                {cart?.map((product,index) => (<CartModalItem key={index} product={product}index={index} />))}
             </section>
 
             <section className="modal-total">

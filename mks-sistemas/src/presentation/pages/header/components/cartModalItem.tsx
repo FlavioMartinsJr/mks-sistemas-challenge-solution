@@ -1,13 +1,14 @@
-import { ProductsModel } from '@domain/models';
+import { ProductsBuyModel } from '@domain/models';
 import CloseIcon from '../../../../assets/img/Close_cart.svg';
 import { useCartContext } from '../contexts';
 
 type Props = {
-    product: ProductsModel;
+    product: ProductsBuyModel;
+    index:number;
 };
 
-export function CartModalItem({product}: Props) {
-    const { CountCart,RemoveCart} = useCartContext()
+export function CartModalItem({product, index}: Props) {
+    const { RemoveCart, DecreaseAmountCart,IncreaseAmountCart} = useCartContext()
 
     return(
         <div className='item'>
@@ -23,19 +24,19 @@ export function CartModalItem({product}: Props) {
             </div>   
 
             <div className='item-amoust'>
-                <p>Qtd:</p>
+                <p className='qtd'>Qtd:</p>
                 <div className="item-amoust-button">
-                    <button className="item-amoust-button-decrease">-</button>
-                    |<p> 1 </p>|
-                    <button className="item-amoust-button-increase">+</button>
+                    <button onClick={() => {DecreaseAmountCart(product)}} className="item-amoust-button-decrease">-</button>
+                    |<p> {product.amount} </p>|
+                    <button onClick={() => {IncreaseAmountCart(product)}} className="item-amoust-button-increase">+</button>
                 </div>
             </div>
 
             <div className='item-total'>
-                <h3>R${parseFloat(product.price)}</h3>
+                <h3>R${Math.trunc(product.price) * product.amount}</h3>
             </div>
 
-            <img onClick={() => {console.log(CountCart()),RemoveCart(product),console.log(CountCart())}} className='item-closed icon-closed' src={CloseIcon}/>
+            <img onClick={() => {RemoveCart(index)}} className='item-closed icon-closed' src={CloseIcon}/>
         </div>  
     );
 }

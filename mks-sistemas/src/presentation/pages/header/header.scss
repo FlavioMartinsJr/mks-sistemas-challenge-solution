@@ -74,7 +74,7 @@
 }
 .header-navbar-modal{
     width: 32vw;
-    height: 100vh;
+    height: 100%;
     font-size: 22px;
     font-weight: 700;
     color: $branco;
@@ -127,15 +127,14 @@
         }
     }
     .modal-body{
-        height: 72%;
+        min-height: 72vh;
         width: 100%;
         display: flex;
         justify-content: start;
         flex-direction: column;
         align-items: center;
         gap: 25px;
-        padding: 20px 0px;
-        
+        padding: 20px 0px;     
 
         .item{
             border: 0px solid;
@@ -153,21 +152,36 @@
                 padding: 9px 10px;
                 grid-template-columns: .6fr 0.8fr .5fr .6fr;
             }
+            @include sm{
+                width: 75%;
+                height: 200px;
+                padding: 9px 10px;
+                grid-template-columns: 1fr 1fr;
+            }
+            
             .item-photo{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                
+                @include sm{
+                    grid-column-start: 1;
+                    grid-column-end: 4;
+                }
 
                 .item-photo-img{
                     height: 80%;
                     width: 85%;
 
                     @include md{
-                        height: 80%;
+                        height: 90%;
                         width: 100%;
                     }
+                    @include sm{
+                        height: 90%;
+                        width: 75%;
+                    }
                 }
-
             }
 
             .item-information{
@@ -176,8 +190,18 @@
                 overflow-y: hidden;
                 overflow-x: hidden;
 
+                @include sm{
+                    justify-content: center;
+                    grid-column-start: 1;
+                    grid-column-end: 4;
+                }
                 .item-information-tittle{
                     padding: 12px 24px;
+
+                    @include sm{
+                        padding: 4px 4px 6px 4px;
+                    }
+
                     h4{
                         font-weight: 400;
                         font-size: 17px;
@@ -187,8 +211,9 @@
                             font-size: 12px;
                         }
                         @include sm{
-                            padding: 4px 6px;
-                            font-size: 10px;
+                            font-weight: 500;
+                            font-size: 14px;
+                            padding: 0px 0px;
                         }
                     }
                 }
@@ -206,6 +231,14 @@
                 @include md{
                     font-size: 10px;
                 }
+                @include sm{
+                    padding: 5px 0px;
+                    align-items: center;
+
+                    .qtd{
+                        display: none;
+                    }
+                }
 
                 .item-amoust-button{
                     display: flex;
@@ -219,7 +252,7 @@
                         font-size: 12px;
                     }
                     @include sm{
-                        font-size: 10px;
+                        font-size: 14px;
                     }
 
                     button{
@@ -231,6 +264,9 @@
                         @include md{
                             font-size: 10px;
                         }
+                        @include sm{
+                            font-size: 14px;
+                        }
                     }
                     button:hover{
                         background-color: $cinza;
@@ -240,7 +276,7 @@
                         padding: 2px 4px 2px 6px;
 
                         @include sm{
-                            padding: 1px 2px 1px 4px;
+                            padding: 5px 8px 5px 10px;
                         }
                     }
                     p{
@@ -252,14 +288,14 @@
                         }
 
                         @include sm{
-                            padding: 0px 2px;
+                            padding: 6px 9px;
                         }
                     }
                     .item-amoust-button-increase{
                         padding: 2px 6px 2px 4px;
 
                         @include sm{
-                            padding: 1px 2px 1px 4px;
+                            padding: 5px 10px 5px 8px;
                         }
                     }
                 }
@@ -275,10 +311,19 @@
                     @include md{
                         font-size: 14px;
                     }
-                    @include md{
+                    @include sm{
                         font-size: 11px;
                     }
-                }
+                    @include sm{
+                        border: 0px solid;
+                        font-weight: 700;
+                        font-size: 16px;
+                        padding: 5px 9px;
+                        border-radius: 5px;
+                        color: $branco;
+                        background-color: $cinza-forte;
+                    }
+                }  
             }
             .item-closed{
                 
