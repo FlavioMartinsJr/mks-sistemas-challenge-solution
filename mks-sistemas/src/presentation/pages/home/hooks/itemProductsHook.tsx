@@ -27,7 +27,8 @@ export function ItemProductsHook({productsListUseCase}: Props) {
                 isLoading ? 
                 (
                     <section className='content-items'>
-                        {Array.from(new Array(8))?.map((array,index) => (<ItemProductsSkeleton key={index}/>))}
+                        {/* so ajustar a key da array */}
+                        {Array.from(new Array(8))?.map((_array,index) => (<ItemProductsSkeleton key={index} />))}
                     </section>
                 )  
                 : 
