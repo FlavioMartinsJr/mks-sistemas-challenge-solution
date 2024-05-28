@@ -5,7 +5,7 @@
 
 ## :bell: Informações:
 
-Solução do desafio pratico de um processo seletivo
+Solução de um desafio pratico
 
 ## :bell: Preview:
 
